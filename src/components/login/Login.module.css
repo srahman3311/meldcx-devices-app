@@ -1,0 +1,37 @@
+.login {
+    width: 100%;
+    height: 100vh;
+    background-color: #152D35;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_content {
+    width: 30%;
+    background-color: white;
+    padding: 2% 1%;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media(max-width: 600px) {
+    .login_content {
+        width: 80%;
+        padding: 2% 3%;
+    }
+}
+
+@media((min-width: 600px) and (max-width: 1000px)){
+    .login_content {
+        width: 60%;
+        padding: 2% 3%;
+    }
+}
+
+
+
+
+
+
+
