@@ -15,9 +15,20 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    /* background-color: red; */
     z-index: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.device_count {
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 3rem;
+}
+
+.device_text {
+    color: white;
+    text-align: center;
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import useAxios from "../../hooks/useAxios";
 
 // Stylesheet
 import styles from "./Devices.module.css";
@@ -7,59 +7,48 @@ import styles from "./Devices.module.css";
 // Components
 import Cirlces from "../reuseable-components/circles/Circles";
 
+
+
 function Devices() {
 
     const [apiCallCount, setApiCallCount] = useState(1);
     const [activeDevices, setActiveDevices] = useState(0);
 
+    // Custom Hook Call
+    const endpoint = "http://35.201.2.209:8000/devices"
+    const { data, loading, error } = useAxios(endpoint, `${apiCallCount}`);
+
 
     useEffect(() => {
 
-        async function fetchDeviceData() {
+        if(data) setActiveDevices(data.devices.length)
+        setTimeout(() => {setApiCallCount(apiCallCount + 1)}, 5000)
 
-            const endpoint = "http://35.201.2.209:8000/devices";
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`
-                }
-            }
-
-            const response = await axios.get(endpoint, config);
-            console.log(response.data.devices.length)
-            setActiveDevices(response.data.devices.length);
-            setApiCallCount(apiCallCount + 1)
-
-        }
-
-     
-
-        if(!activeDevices) {
-            fetchDeviceData();
-            return
-        }
-
-        setTimeout(() => {
-            fetchDeviceData();
-            setApiCallCount(apiCallCount + 1);
-        }, 5000)
-
-      
-
-    }, [apiCallCount]);
-
+    }, [data, apiCallCount]);
     
 
     return (
         <div className = {styles.devices}>
-
-         
             <div className = {styles.devices_content}>
                 {
-                    activeDevices
-                    ? 
-                    <h2>{activeDevices}</h2>
+                    error 
+                    ?
+                    <div>Something went wrong</div>
                     :
-                    <div></div>
+                    loading 
+                    ?
+                    <div>Refreshing...</div>
+                    :
+                    (activeDevices
+                    ? 
+                    <div>
+                        <h2 className = {styles.device_count}>{activeDevices}</h2>
+                        <p className = {styles.device_text}>DEVICES</p>
+                        <p className = {styles.device_text}>ONLINE</p>
+                    </div>
+                    
+                    :
+                    <div></div>)
                 }
 
             </div>
