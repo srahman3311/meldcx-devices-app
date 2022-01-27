@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 
 // Stylesheet
@@ -6,10 +7,13 @@ import styles from "./Devices.module.css";
 
 // Components
 import Cirlces from "../reuseable-components/circles/Circles";
+import Footer from "../reuseable-components/footer/Footer";
 
 
 
 function Devices() {
+
+    const navigate = useNavigate();
 
     const [apiCallCount, setApiCallCount] = useState(1);
     const [activeDevices, setActiveDevices] = useState(0);
@@ -20,6 +24,8 @@ function Devices() {
 
 
     useEffect(() => {
+
+        if(!localStorage.getItem("authToken")) return navigate("/");
 
         if(fetchedData) setActiveDevices(fetchedData.devices.length)
         setTimeout(() => {setApiCallCount(apiCallCount + 1)}, 5000)
@@ -53,6 +59,16 @@ function Devices() {
 
             </div>
             <Cirlces />
+
+            <Footer 
+                style = {{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    zIndex: 1
+                }}
+                
+            />
         </div>
     );
 }

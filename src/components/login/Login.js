@@ -64,7 +64,9 @@ export default function Login () {
             navigate("/devices");
 
         } catch(error) {
+
             setServerErrorMessage(error.response.data);
+            
         } 
 
     }
