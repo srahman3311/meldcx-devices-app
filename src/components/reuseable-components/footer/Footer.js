@@ -5,7 +5,7 @@ import styles from "./Footer.module.css";
 
 // Components
 import TransparentDiv from "../transparent-div/TransparentDiv";
-import Button from "../Button";
+import Button from "../others/Button";
 
 
 function Footer({ style }) {
@@ -35,8 +35,7 @@ function Footer({ style }) {
                         backgroundColor: "white",
                         color: "black",
                         padding: "7px 30px",
-                        borderRadius: "5px",
-        
+                        borderRadius: "5px"
                     }} 
                 />
                 <Button 

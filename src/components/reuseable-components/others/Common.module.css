@@ -1,3 +1,35 @@
+/* Headers */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* Buttons */
+.button {
+    margin: auto;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.button_div {
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+/* Icons */
+.icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Input fields */
 .input_field_container {
     width: 100%;
     margin-bottom: 20px;
@@ -17,7 +49,6 @@
     align-items: center;
 }
 
-
 .input_field input[type=text], .input_field input[type=password] {
     width: 100%;
     border: none;
@@ -29,4 +60,7 @@
 .input_field input[type=text]:focus, .input_field input[type=password]:focus {
     outline: none;
 }
+
+
+
 

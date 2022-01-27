@@ -44,11 +44,11 @@ function Devices() {
                 {
                     error 
                     ?
-                    <div>Something went wrong</div>
+                    <div style = {{color: "white"}}>Something went wrong</div>
                     :
                     loading 
                     ?
-                    <div>Loading....</div>
+                    <div style = {{color: "white"}}>Loading....</div>
                     :
                     (activeDevices
                     ? 

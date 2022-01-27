@@ -5,14 +5,14 @@ import axios from "axios";
 
 // Stylesheet
 import styles from "./Login.module.css";
-import inputFieldStyles from "../reuseable-components/InputField.module.css";
-import buttonStyles from "../reuseable-components/Button.module.css";
+import commonStyles from "../reuseable-components/others/Common.module.css";
+
 
 // Components
-import Header from "../reuseable-components/Header";
-import Icon from "../reuseable-components/Icon";
-import InputField from "../reuseable-components/InputField";
-import Button from "../reuseable-components/Button";
+import Header from "../reuseable-components/others/Header";
+import Icon from "../reuseable-components/others/Icon";
+import InputField from "../reuseable-components/others/InputField";
+import Button from "../reuseable-components/others/Button";
 import ValidationErrorMessage from "../reuseable-components/messages/ValidationErrorMessage";
 import ServerErrorMessage from "../reuseable-components/messages/ServerErrorMessage";
 
@@ -34,6 +34,11 @@ export default function Login () {
     
 
     function handleChange (event) {
+
+        event.preventDefault();
+
+        // Need to hide server error message if user starts typing the correct credentials
+        setServerErrorMessage("");
 
         const { name, value } = event.target;
 
@@ -83,8 +88,8 @@ export default function Login () {
                     message = {serverErrorMessage}
                 />
                 <form className={styles.login_credentials}>
-                    <div className= {inputFieldStyles.input_field_container}>
-                        <div className = {inputFieldStyles.input_field_content}>
+                    <div className= {commonStyles.input_field_container}>
+                        <div className = {commonStyles.input_field_content}>
                             <Icon 
                                 iconClassName = "fas fa-envelope" 
                                 style = {{
@@ -113,8 +118,8 @@ export default function Login () {
                         />
                     </div>
                    
-                    <div className= {inputFieldStyles.input_field_container}>
-                        <div className = {inputFieldStyles.input_field_content}>
+                    <div className= {commonStyles.input_field_container}>
+                        <div className = {commonStyles.input_field_content}>
                             <Icon 
                                 iconClassName = "fas fa-unlock-alt" 
                                 style = {{
@@ -143,7 +148,7 @@ export default function Login () {
                         />
                     </div>
                    
-                    <div className = {buttonStyles.button_div}>
+                    <div className = {commonStyles.button_div}>
                         <Button 
                             text = "LOG IN" 
                             clickHandler = {login}

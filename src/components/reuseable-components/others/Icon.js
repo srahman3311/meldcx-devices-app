@@ -1,4 +1,4 @@
-import styles from "./Icon.module.css";
+import styles from "./Common.module.css";
 
 
 function Icon({ iconClassName, style }) {

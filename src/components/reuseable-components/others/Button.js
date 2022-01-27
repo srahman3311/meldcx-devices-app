@@ -1,4 +1,4 @@
-import styles from "./Button.module.css";
+import styles from "./Common.module.css";
 
 function Button({ text, clickHandler, style }) {
 

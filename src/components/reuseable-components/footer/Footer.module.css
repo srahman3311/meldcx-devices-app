@@ -1,35 +1,28 @@
 .footer {
     width: 100%;
-    padding: 1%;
+    padding: 1.5% 0%;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .footer_content {
     width: 20%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    margin: auto;
     z-index: 1;
 }
 
 @media(max-width: 600px) {
-
-    .footer {
-        padding: 4% 2%;
-    }
     .footer_content {
         width: 80%;
     }
 }
 
 @media((min-width: 600px) and (max-width: 1250px)){
-    .footer {
-        padding: 4% 2%;
-    }
     .footer_content {
-        width: 30%;
+        width: 40%;
     }
 }
 

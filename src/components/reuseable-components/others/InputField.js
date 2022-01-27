@@ -1,5 +1,5 @@
 // Stylesheet
-import styles from "./InputField.module.css";
+import styles from "./Common.module.css";
 
 
 

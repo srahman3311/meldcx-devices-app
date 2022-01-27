@@ -10,8 +10,8 @@
 
 .devices_content {
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 350px;
+    height: 350px;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -31,4 +31,19 @@
 .device_text {
     color: white;
     text-align: center;
+}
+
+@media(max-width: 600px) {
+    .devices_content {
+        width: 220px;
+        height: 220px;
+    }
+    
+}
+
+@media((min-width: 600px) and (max-width: 1000px)){
+  .devices_content {
+        width: 300px;
+        height: 300px;
+    }
 }

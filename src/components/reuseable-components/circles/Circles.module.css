@@ -1,44 +1,64 @@
 .orbitting_sun_moon{
-    width:300px;
-    height:300px;
-    animation-iteration-count:infinite;
-    animation-timing-function:linear;
-    animation-name:orbit;
-    animation-duration:5s;
-    -webkit-animation-iteration-count:infinite;
-    -webkit-animation-timing-function:linear;
-    -webkit-animation-name:orbit;
-    -webkit-animation-duration:10s;
+    width: 350px;
+    height: 350px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: orbit;
+    animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-name: orbit;
+    -webkit-animation-duration: 10s;
 }
 
 .sun{
-    position:absolute;
-    top:0;
-    left:0;
-    width:50px;
-    height:50px;
-    background: white;
-    border-radius:50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background:white;
+    border-radius: 50%;
 }
 
 .moon{
-    position:absolute;
-    bottom:0;
-    right:0;
-    width:50px;
-    height:50px;
-    background: white;
-    border-radius:50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background:white;
+    border-radius: 50%;
 }
 
 
 @keyframes orbit { 
-    from { transform:rotate(0deg) } 
-    to { transform:rotate(360deg) } 
+    from { transform: rotate(0deg) } 
+    to { transform: rotate(360deg) } 
 }
 
 @-webkit-keyframes orbit { 
-    from { -webkit-transform:rotate(0deg) } 
-    to { -webkit-transform:rotate(360deg) } 
+    from { -webkit-transform: rotate(0deg) } 
+    to { -webkit-transform: rotate(360deg) } 
 }
+
+
+@media(max-width: 600px) {
+
+    .orbitting_sun_moon{
+        width:220px;
+        height:220px;
+    }
+    
+}
+
+@media((min-width: 600px) and (max-width: 1000px)){
+
+    .orbitting_sun_moon{
+        width:300px;
+        height:300px;
+    }
+
+}
+
 

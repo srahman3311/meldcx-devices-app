@@ -12,7 +12,7 @@ import Devices from "./components/devices/Devices";
 function App() {
 
     return (
-        <div className={styles.container}>
+        <div className={styles.App}>
             <Router>
                 <Routes>
                     <Route path="/" element={<Login />} />
