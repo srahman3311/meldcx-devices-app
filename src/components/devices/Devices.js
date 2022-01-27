@@ -28,7 +28,12 @@ function Devices() {
         if(!localStorage.getItem("authToken")) return navigate("/");
 
         if(fetchedData) setActiveDevices(fetchedData.devices.length)
-        setTimeout(() => {setApiCallCount(apiCallCount + 1)}, 5000)
+        const timer = setTimeout(() => {setApiCallCount(apiCallCount + 1)}, 5000)
+
+        // Cleaning the useEffect hook on component unmounts
+        return () => {
+            clearTimeout(timer);
+        }
 
     }, [fetchedData]);
 
