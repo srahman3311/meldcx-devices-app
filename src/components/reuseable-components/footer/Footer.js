@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 // Stylesheet
 import styles from "./Footer.module.css";
@@ -12,8 +13,33 @@ function Footer({ style }) {
 
     const navigate = useNavigate();
 
-    function notify() {
-        console.log("hello");
+    async function notify() {
+
+        const endpoint = "http://35.201.2.209:8000/notify";
+
+        const requestBody = {
+            name: "Samsur Rahman Rafez",
+            email: "samsur.rahman3311@gmail.com",
+            repoUrl: "https://github.com/srahman3311/meldcx-devices-app",
+            message: "I have finished your app and learned a lot of stuffs building it"
+        }
+
+        const config = {
+            headers: {
+                Authorization: `Bearer ${ localStorage.getItem("authToken") }` 
+            }
+        }
+        
+        try {
+
+            const response = await axios.post(endpoint, requestBody, config);
+            alert(response.data);
+
+        } catch(error) {
+
+            alert(error.response.data);
+
+        } 
     }
 
     function logUserOut() {
