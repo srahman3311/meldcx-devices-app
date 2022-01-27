@@ -2,47 +2,49 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 
-function useAxios(endpoint, state) {
+function useAxios(method, url, data, state) {
 
-    const [data, setData] = useState(null);
+    const [fetchedData, setFetchedData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
 
-    const fetchData = async () => {
-
-        try {
-
-            setLoading(true);
-
-            const config = {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("authToken")}`
-                }
-            }
-
-            const response = await axios.get(endpoint, config);
-
-            setData(response.data)
-
-        } catch (error) {
-
-            setError(true);
-
-        } finally {
-
-            setLoading(false);
-
-        }
-
-    }
 
     useEffect(() => {
 
+        const fetchData = async () => {
+
+            try {
+    
+                setLoading(true);
+    
+                const options = {
+                    headers: { Authorization: `Bearer ${ localStorage.getItem("authToken") }` },
+                    method,
+                    data,
+                    url
+                }
+    
+                const response = await axios(options);
+                setFetchedData(response.data);
+    
+            } catch (error) {
+    
+                setError(true);
+    
+            } finally {
+    
+                setLoading(false);
+    
+            }
+    
+        }
+    
         fetchData();
 
-    }, [endpoint, state]); 
+    }, [state]); 
 
-    return { data, error, loading };
+
+    return { fetchedData, error, loading };
 
 }
 

@@ -15,17 +15,17 @@ function Devices() {
     const [activeDevices, setActiveDevices] = useState(0);
 
     // Custom Hook Call
-    const endpoint = "http://35.201.2.209:8000/devices"
-    const { data, loading, error } = useAxios(endpoint, `${apiCallCount}`);
+    const url = "http://35.201.2.209:8000/devices"
+    const { fetchedData, loading, error } = useAxios("get", url, {}, `${apiCallCount}`);
 
 
     useEffect(() => {
 
-        if(data) setActiveDevices(data.devices.length)
+        if(fetchedData) setActiveDevices(fetchedData.devices.length)
         setTimeout(() => {setApiCallCount(apiCallCount + 1)}, 5000)
 
-    }, [data, apiCallCount]);
-    
+    }, [fetchedData]);
+
 
     return (
         <div className = {styles.devices}>
@@ -37,7 +37,7 @@ function Devices() {
                     :
                     loading 
                     ?
-                    <div>Refreshing...</div>
+                    <div>Loading....</div>
                     :
                     (activeDevices
                     ? 
